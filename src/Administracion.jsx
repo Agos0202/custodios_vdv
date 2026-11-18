@@ -4,8 +4,8 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import './Administracion.css';
 import { listarFilas, insertarFila, TABLA_CUSTODIOS } from './supabase';
+import { RUTA_ADMIN as RUTA_BASE } from './rutas';
 
-const RUTA_BASE = '/4dmin2026c0mun4';
 
 // Imágenes a custodiar. Si sobran custodios, se suman en este orden.
 const IMAGENES = [
@@ -24,9 +24,10 @@ const PDF_TEXTO = [30, 58, 84];
 const FORMULARIO_VACIO = { nombre: '', apellido: '', barrio: '', telefono: '' };
 
 const obtenerSeccionDesdeRuta = () => {
-  const path = window.location.pathname.toLowerCase();
-  if (path === `${RUTA_BASE}/custodios`) return 'custodios';
-  if (path === `${RUTA_BASE}/sorteo`) return 'sorteo';
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+  const base = RUTA_BASE.toLowerCase();
+  if (path === `${base}/custodios`) return 'custodios';
+  if (path === `${base}/sorteo`) return 'sorteo';
   return 'menu';
 };
 

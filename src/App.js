@@ -3,9 +3,10 @@ import PantallaInicio from './PantallaInicio';
 import TarjetaEvento from './TarjetaEvento';
 import Administracion from './Administracion';
 import Login from './Login';
+import { RUTA_ADMIN } from './rutas';
 
 const obtenerPantallaDesdeRuta = () => {
-  if (window.location.pathname.startsWith('/4dmin2026c0mun4')) {
+  if (window.location.pathname.toLowerCase().startsWith(RUTA_ADMIN.toLowerCase())) {
     return 'administracion';
   }
   if (window.location.pathname === '/evento') {
