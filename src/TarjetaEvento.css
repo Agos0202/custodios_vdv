@@ -328,6 +328,73 @@
     drop-shadow(0 2px 3px rgba(30, 58, 84, 0.35));
 }
 
+/* ── Aviso importante (primer encuentro) ─────────────── */
+.aviso-importante {
+  position: relative;
+  width: min(760px, 100%);
+  margin-top: 0.6rem;
+  padding: 2rem 1.4rem 1.6rem;
+  border-radius: 18px;
+  text-align: center;
+  background: linear-gradient(160deg, #ffffff 0%, #f3f8fc 100%);
+  border: 2px solid #85aed0;
+  box-shadow:
+    inset 0 0 0 4px #ffffff,
+    inset 0 0 0 5px rgba(176, 141, 60, 0.55),
+    0 12px 28px rgba(62, 101, 132, 0.16);
+}
+
+.aviso-etiqueta {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.35rem 1.1rem;
+  border-radius: 999px;
+  background: #b08d3c;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(176, 141, 60, 0.35);
+}
+
+.aviso-titulo {
+  margin: 0 0 1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-weight: 700;
+  color: #3e6584;
+}
+
+.aviso-datos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1.4rem;
+}
+
+.aviso-datos li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.02rem, 3.4vw, 1.2rem);
+  font-weight: 600;
+  color: #1e3a54;
+}
+
+.aviso-datos i {
+  color: #b08d3c;
+  font-size: 1.1em;
+}
+
 /* ── Convocatoria de custodios ───────────────────────── */
 .convocatoria {
   display: flex;

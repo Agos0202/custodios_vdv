@@ -32,7 +32,9 @@ const GALERIA = [
   { tipo: 'video', src: '/galeria/6.mp4' },
   { tipo: 'imagen', src: '/galeria/foto-2.jpg' },
   { tipo: 'video', src: '/galeria/7.mp4' },
+  { tipo: 'imagen', src: '/galeria/foto-3.jpg' },
   { tipo: 'video', src: '/galeria/8.mp4' },
+  { tipo: 'imagen', src: '/galeria/foto-4.jpg' },
 ];
 
 const FORMULARIO_VACIO = {
@@ -230,6 +232,24 @@ const [guardando, setGuardando] = useState(false);
               <button type="button" className="btn-volver" onClick={onVolver}>Volver</button>
             </div>
           </form>
+          <aside className="aviso-importante" aria-label="Importante">
+            <span className="aviso-etiqueta">Importante</span>
+            <h3 className="aviso-titulo">Primer Encuentro</h3>
+            <ul className="aviso-datos">
+              <li>
+                <i className="bi bi-calendar-event" aria-hidden="true" />
+                Jueves 19 de noviembre
+              </li>
+              <li>
+                <i className="bi bi-clock" aria-hidden="true" />
+                20 hs
+              </li>
+              <li>
+                <i className="bi bi-geo-alt" aria-hidden="true" />
+                Templo Parroquial
+              </li>
+            </ul>
+          </aside>
         </div>
       </main>
       <FooterComuna />
