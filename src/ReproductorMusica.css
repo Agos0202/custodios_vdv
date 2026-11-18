@@ -1,0 +1,134 @@
+/* Reproductor flotante: abajo a la derecha, con los colores del manto */
+.musica {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.musica-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(176, 141, 60, 0.45);
+  box-shadow: 0 6px 16px rgba(30, 58, 84, 0.18);
+  color: #3e6584;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  animation: musicaEntrada 0.5s ease-out;
+}
+
+/* Ecualizador: se mueve solo mientras suena */
+.musica-ecualizador {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.musica-ecualizador span {
+  width: 3px;
+  height: 4px;
+  border-radius: 2px;
+  background: #b08d3c;
+}
+
+.musica.sonando .musica-ecualizador span {
+  animation: musicaBarra 0.9s ease-in-out infinite;
+}
+
+.musica.sonando .musica-ecualizador span:nth-child(2) { animation-delay: 0.2s; }
+.musica.sonando .musica-ecualizador span:nth-child(3) { animation-delay: 0.45s; }
+.musica.sonando .musica-ecualizador span:nth-child(4) { animation-delay: 0.1s; }
+
+/* Botón redondo celeste con aro dorado */
+.musica-boton {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #ffffff;
+  background: radial-gradient(circle at 35% 30%, #a9c8e2 0%, #85aed0 45%, #5f86a8 100%);
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.85),
+    inset 0 0 0 4px rgba(176, 141, 60, 0.9),
+    0 10px 22px rgba(30, 58, 84, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.musica-boton:hover {
+  transform: scale(1.06);
+}
+
+.musica-boton:active {
+  transform: scale(0.96);
+}
+
+.musica-boton:focus-visible {
+  outline: 3px solid #b08d3c;
+  outline-offset: 3px;
+}
+
+.musica-icono {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  filter: drop-shadow(0 1px 1px rgba(30, 58, 84, 0.4));
+}
+
+/* El triángulo de play se ve centrado si se corre un poquito a la derecha */
+.musica-icono-play {
+  transform: translateX(1.5px);
+}
+
+/* Halo que late mientras suena */
+.musica-halo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(133, 174, 208, 0.8);
+  opacity: 0;
+}
+
+.musica.sonando .musica-halo {
+  animation: musicaHalo 2s ease-out infinite;
+}
+
+@keyframes musicaBarra {
+  0%, 100% { height: 4px; }
+  50% { height: 12px; }
+}
+
+@keyframes musicaHalo {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes musicaEntrada {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .musica.sonando .musica-ecualizador span,
+  .musica.sonando .musica-halo,
+  .musica-etiqueta {
+    animation: none;
+  }
+}

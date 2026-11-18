@@ -1,0 +1,90 @@
+/* Carrusel: todo el ancho, con el largo según la proporción de las fotos (3:4).
+   Si la pantalla es más ancha, la foto se ve entera al centro con el fondo borroso. */
+.carrusel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 100vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #1e3a54;
+  touch-action: pan-y;
+}
+
+/* Variante galería: dentro del contenido, cuadrada y con bordes redondeados */
+.carrusel.carrusel-galeria {
+  width: min(640px, 100%);
+  aspect-ratio: 1 / 1;
+  max-height: none;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(62, 101, 132, 0.25);
+}
+
+.carrusel-galeria video.carrusel-imagen {
+  background: #000;
+}
+
+.carrusel-pista {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.9s ease-in-out;
+}
+
+.carrusel-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carrusel-fondo {
+  position: absolute;
+  inset: -40px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) brightness(0.65);
+}
+
+.carrusel-imagen {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+.carrusel-puntos {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carrusel-punto {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.carrusel-punto.activo {
+  width: 24px;
+  background: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-pista {
+    transition: none;
+  }
+}

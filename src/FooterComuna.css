@@ -1,0 +1,47 @@
+.comuna-footer {
+  width: 100%;
+  border-top: 1px solid rgba(184, 150, 72, 0.5);
+  background: #85aed0;
+}
+
+.comuna-footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comuna-logo {
+  width: min(210px, 60vw);
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 0.65rem;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(30, 58, 84, 0.35));
+}
+
+.comuna-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.92rem, 2vw, 1rem);
+  font-weight: 600;
+  color: #1e3a54;
+}
+
+.comuna-textoo {
+  margin-top: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  font-weight: 300;
+  color: #1e3a54;
+}
+
+.social-item {
+  color: #1e3a54;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-item:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
