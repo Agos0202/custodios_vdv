@@ -2,6 +2,8 @@
   // Configuración para publicar en Cloudflare Workers (sitio estático)
   "name": "custodios-vdv",
   "compatibility_date": "2025-06-01",
+  // Publicar en la dirección pública *.workers.dev
+  "workers_dev": true,
   "assets": {
     "directory": "./build",
     // Las rutas /evento y /administracionParroquia las maneja React
